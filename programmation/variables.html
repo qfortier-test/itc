@@ -50,6 +50,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Content in Jupyter Book" href="../content.html" />
@@ -157,11 +159,14 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/programmation/variables.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="../_sources/programmation/variables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/programmation/variables.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -184,7 +189,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/fortierq/itc/master?urlpath=tree/itc/programmation/variables.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fortierq/itc/master?urlpath=tree/itc/programmation/variables.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -207,13 +212,29 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition">
-   Définition
+  <a class="reference internal nav-link" href="#affectation">
+   Affectation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#types-classiques">
-   Types classiques
+  <a class="reference internal nav-link" href="#types-numeriques-int-float">
+   Types numériques :
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     int
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     float
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#booleens">
+   Booléens
   </a>
  </li>
 </ul>
@@ -229,8 +250,8 @@
                 
   <div class="section" id="variables">
 <h1>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="definition">
-<h2>Définition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="affectation">
+<h2>Affectation<a class="headerlink" href="#affectation" title="Permalink to this headline">¶</a></h2>
 <p>Une variable en informatique possède 3 caractéristiques :</p>
 <ul class="simple">
 <li><p>un nom</p></li>
@@ -273,39 +294,273 @@ On peut aussi modifier la valeur de <code class="docutils literal notranslate"><
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Même si la définition d’une variable et la modification d’une variable s’écrivent de la même façon en Python (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">...</span></code>), il s’agit de deux instructions fondamentalement différentes.</p>
+<p>De manière générale, une affectation s’écrit sous la forme suivante :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">expression</span>
+</pre></div>
+</div>
+<p><strong>Cette affectation a pour effet de calculer la valeur de expression et de mettre cette valeur dans <code class="docutils literal notranslate"><span class="pre">a</span></code>.</strong></p>
+<p>Considérons par exemple les lignes suivantes :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="types-classiques">
-<h2>Types classiques<a class="headerlink" href="#types-classiques" title="Permalink to this headline">¶</a></h2>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voici le fonctionnement détaillé :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> est défini en prenant la valeur 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code> est défini en prenant la valeur 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y*4</span></code> est calculé, ce qui donne 14</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> prend la valeur 14</p></li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Le sens du symbole = en mathématiques est très différent. Ainsi, en mathématiques, <span class="math notranslate nohighlight">\(x = x + y\times4\)</span> est une équation que l’on peut résoudre en <span class="math notranslate nohighlight">\(0 = y\times4\)</span>, c’est à dire <span class="math notranslate nohighlight">\(y = 0\)</span>… rien à voir avec ce que fait Python !</p>
+</div>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Type Python</p></th>
+<tr class="row-odd"><th class="head"><p>Python</p></th>
 <th class="head"><p>Description</p></th>
 <th class="head"><p>Exemple</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>int</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
 <td><p>entier</p></td>
-<td><p>0, 42, -7</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">42</span></code>, <code class="docutils literal notranslate"><span class="pre">-7</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>bool</p></td>
-<td><p>booléen (vrai ou faux)</p></td>
-<td><p>True, False</p></td>
-</tr>
-<tr class="row-even"><td><p>str</p></td>
-<td><p>chaîne de caractères</p></td>
-<td><p>“blabla”, “”, “info”</p></td>
-</tr>
-<tr class="row-odd"><td><p>float</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
 <td><p>nombre à virgule</p></td>
-<td><p>3.14, -2.718</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3.14</span></code>, <code class="docutils literal notranslate"><span class="pre">-2.718</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>booléen (vrai ou faux)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;blabla&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;info&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td><p>liste</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>, <code class="docutils literal notranslate"><span class="pre">[3.14,</span> <span class="pre">&quot;chaine&quot;,</span> <span class="pre">[1,</span> <span class="pre">0]]</span></code></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="types-numeriques-int-float">
+<h2>Types numériques : <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code><a class="headerlink" href="#types-numeriques-int-float" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> est utilisé pour les entiers (naturels : positif ou négatif).</p></li>
+</ul>
+<p>Voici les opérations que l’on peut effectuer sur les <code class="docutils literal notranslate"><span class="pre">int</span></code> et <code class="docutils literal notranslate"><span class="pre">float</span></code> :</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Python</p></th>
+<th class="head"><p>Signification</p></th>
+<th class="head"><p>Exemple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>addition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code> vaut <code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>soustraction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">-</span> <span class="pre">3</span></code> vaut <code class="docutils literal notranslate"><span class="pre">-1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>multiplication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2*3</span></code> vaut <code class="docutils literal notranslate"><span class="pre">6</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p>puissance</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2**3</span></code> vaut <code class="docutils literal notranslate"><span class="pre">8</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>division (dans <span class="math notranslate nohighlight">\(\mathbb{Q}\)</span>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5/2</span></code> vaut <code class="docutils literal notranslate"><span class="pre">2.5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+<td><p>division <strong>entière</strong> (dans <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5//2</span></code> vaut <code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Une racine peut être calculée avec <code class="docutils literal notranslate"><span class="pre">**</span></code>. Par exemple, <span class="math notranslate nohighlight">\(\sqrt{2} = 2^{\frac{1}{2}}\)</span> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4142135623730951
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Exercice</p>
+<p>Utiliser Python pour calculer la valeur (approximative) du nombre d’or <span class="math notranslate nohighlight">\(\phi = \frac{1 + \sqrt{5}}{2}\)</span></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Votre solution</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.618033988749895
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Exercice</p>
+<p>Donner la valeur de l’expression suivante :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">6</span> <span class="o">+</span> <span class="mi">4</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">6</span> <span class="o">+</span> <span class="mi">4</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut comparer des <code class="docutils literal notranslate"><span class="pre">int</span></code>/<code class="docutils literal notranslate"><span class="pre">float</span></code> de la façon suivante :</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Python</p></th>
+<th class="head"><p>Signification</p></th>
+<th class="head"><p>Exemple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p>égal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">==</span> <span class="pre">0</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">==</span> <span class="pre">3</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>inférieur strictement</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">2</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">&lt;</span> <span class="pre">3.14</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>supérieur strictement</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">&gt;</span> <span class="pre">3.14</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>inférieur ou égal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">2</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">&lt;=</span> <span class="pre">3.14</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>supérieur ou égal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&gt;=</span> <span class="pre">2</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">&gt;=</span> <span class="pre">3.14</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>différent</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">!=</span> <span class="pre">2</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">!=</span> <span class="pre">3.14</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Il est possible d’enchaîner des comparaisons. Par exemple, pour tester si <span class="math notranslate nohighlight">\(\phi\)</span> est compris entre 1 et 2 :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Ne pas confondre <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">b</span></code>, qui permet de mettre la valeur de <code class="docutils literal notranslate"><span class="pre">b</span></code> dans <code class="docutils literal notranslate"><span class="pre">a</span></code>, et <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code> qui permet de tester si <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> ont la même valeur.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="booleens">
+<h2>Booléens<a class="headerlink" href="#booleens" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Python</p></th>
+<th class="head"><p>Signification</p></th>
+<th class="head"><p>Exemple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></td>
+<td><p>ou</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">3.14</span> <span class="pre">==</span> <span class="pre">3</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></td>
+<td><p>et</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">and</span> <span class="pre">3.14</span> <span class="pre">==</span> <span class="pre">3</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></td>
+<td><p>négation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">1</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>inférieur ou égal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">2</span></code> est <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">&lt;=</span> <span class="pre">3.14</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>supérieur ou égal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&gt;=</span> <span class="pre">2</span></code> est <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">&gt;=</span> <span class="pre">3.14</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>différent</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">!=</span> <span class="pre">2</span></code> est <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">!=</span> <span class="pre">3.14</span></code> vaut <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="tip admonition">
+<p class="admonition-title">Exercice</p>
+<p>Donner la valeur de l’expression suivante :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="mi">0</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="mi">0</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
