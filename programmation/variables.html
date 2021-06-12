@@ -675,21 +675,29 @@ On peut aussi modifier la valeur de <code class="docutils literal notranslate"><
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">L[-1]</span></code> est un raccourci permettant d’accéder au dernier élément d’une liste. De même, <code class="docutils literal notranslate"><span class="pre">L[-2]</span></code> accède à l’avant dernier élément…</p>
 <p>Essayer d’accéder à un élément qui n’existe pas produit une erreur :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># donne 4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># erreur</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># ERREUR</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
-<span class="o">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">e387ee5c742b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-      <span class="mi">1</span> <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-      <span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># pas de problème</span>
-<span class="o">----&gt;</span> <span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># erreur</span>
-
-<span class="ne">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">5</span><span class="n">a3126180271</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># donne 4</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># ERREUR</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -731,13 +739,13 @@ On peut aussi modifier la valeur de <code class="docutils literal notranslate"><
 <div class="section" id="chaines-de-caracteres">
 <h3>Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Permalink to this headline">¶</a></h3>
 <p>Les chaînes de caractères (string en anglais) servent à stocker du texte, sous forme d’une suite de caractères (symboles). Contrairement aux listes, il n’est pas possible de modifier une chaîne de caractères (on dit que c’est un type immutable)). Par exemple, il n’y a pas de <code class="docutils literal notranslate"><span class="pre">append</span></code> sur les chaîne de caractères.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;l&#39;informatique c&#39;est fun&quot;</span>  <span class="c1"># définition d&#39;une chaîne de caractères</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>  <span class="c1"># taille de s</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># caractère d&#39;indice 2 (c&#39;est à dire en 3ème position)</span>
-<span class="c1"># s[0] = &quot;L&quot;  # ERREUR : on ne peut pas modifier un str</span>
-<span class="c1"># s.append(&quot;!&quot;)  # ERREUR : on ne peut pas modifier un str</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span>  <span class="c1"># ERREUR : on ne peut pas modifier un str</span>
+<span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>  <span class="c1"># ERREUR : on ne peut pas modifier un str</span>
 </pre></div>
 </div>
 </div>
@@ -746,25 +754,47 @@ On peut aussi modifier la valeur de <code class="docutils literal notranslate"><
 i
 </pre></div>
 </div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">0</span><span class="n">b34938a86e1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>  <span class="c1"># taille de s</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># caractère d&#39;indice 2 (c&#39;est à dire en 3ème position)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span>  <span class="c1"># ERREUR : on ne peut pas modifier un str</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>  <span class="c1"># ERREUR : on ne peut pas modifier un str</span>
+
+<span class="ne">TypeError</span>: &#39;str&#39; object does not support item assignment
+</pre></div>
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="tuples">
 <h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
 <p>Les tuples (ou <span class="math notranslate nohighlight">\(n\)</span>-uplets) sont la généralisation des couples, triplets… Ils ressemblent beaucoup aux chaînes de caractères (en particulier, ils sont immutables) mais servent à stocker autre chose que du texte.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># donne 3</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>  <span class="c1"># donne 4</span>
-<span class="c1"># t[1] = 6  ERREUR : on ne peut pas modifier un tuple</span>
-<span class="c1"># t.append(6)  # ERREUR : on ne peut pas modifier un tuple</span>
+<span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># ERREUR : on ne peut pas modifier un tuple</span>
+<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># ERREUR : on ne peut pas modifier un tuple</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 4
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="n">ee0d1b431794</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># donne 3</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>  <span class="c1"># donne 4</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># ERREUR : on ne peut pas modifier un tuple</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># ERREUR : on ne peut pas modifier un tuple</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
 </pre></div>
 </div>
 </div>
